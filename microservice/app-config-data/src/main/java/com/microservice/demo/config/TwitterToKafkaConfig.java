@@ -1,4 +1,4 @@
-package com.TwitterToKafkaMicroservice.config;
+package com.microservice.demo.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -12,4 +12,8 @@ import java.util.List;
 public class TwitterToKafkaConfig {
     private List<String> twitterKeywords;
     private String welcomeMessage;
+    private boolean mockTweetEnabled;
+    private Integer mockMinTweetLength;
+    private Integer mockMaxTweetLength;
+    private Integer mockSleepMs;
 }

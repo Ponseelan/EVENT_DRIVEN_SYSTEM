@@ -5,7 +5,8 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>Twitter-To-Kafka-Service</module>
-	</modules>
+        <module>app-config-data</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

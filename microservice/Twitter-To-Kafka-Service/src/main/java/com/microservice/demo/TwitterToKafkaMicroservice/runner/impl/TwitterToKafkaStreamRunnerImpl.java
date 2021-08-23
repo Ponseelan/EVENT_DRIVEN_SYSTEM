@@ -1,10 +1,11 @@
-package com.TwitterToKafkaMicroservice.runner.impl;
+package com.microservice.demo.TwitterToKafkaMicroservice.runner.impl;
 
-import com.TwitterToKafkaMicroservice.config.TwitterToKafkaConfig;
-import com.TwitterToKafkaMicroservice.listener.TwitterKafkaStatusListener;
-import com.TwitterToKafkaMicroservice.runner.StreamRunner;
+import com.microservice.demo.TwitterToKafkaMicroservice.listener.TwitterKafkaStatusListener;
+import com.microservice.demo.TwitterToKafkaMicroservice.runner.StreamRunner;
+import com.microservice.demo.config.TwitterToKafkaConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import twitter4j.FilterQuery;
 import twitter4j.TwitterException;
@@ -14,6 +15,7 @@ import twitter4j.TwitterStreamFactory;
 import javax.annotation.PreDestroy;
 
 @Component
+@ConditionalOnProperty(name = "twitter-to-kafka-service.mock-tweet-enabled",havingValue = "false",matchIfMissing = true)
 public class TwitterToKafkaStreamRunnerImpl implements StreamRunner {
     private final TwitterToKafkaConfig twitterToKafkaConfig;
     private final TwitterKafkaStatusListener twitterKafkaStatusListener;
