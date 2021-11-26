@@ -10,3 +10,18 @@ twitter-to-kafka-service:
   mock-min-tweet-length: 5
   mock-max-tweet-length: 25
   mock-sleep-ms: 5000
+retry-config:
+  initialIntervalMs: 1000
+  maxIntervalMs: 10000
+  multiplier: 2.0
+  maxAttempts: 3
+  sleepTimeMs: 2000
+kafka-config:
+  bootStrapServer: localhost:19092, localhost:29092, localhost:39092,
+  schemaRegistryUrlKey: schema.registry.url
+  schemaRegistryUrl: http://localhost:8081
+  topicName: twitter-topic
+  topicNameToCreate:
+    - twitter-topic
+  numOfPartitions: 3
+  replicationFactor: 3

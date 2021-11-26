@@ -13,8 +13,6 @@
     <packaging>pom</packaging>
     <modules>
 
-        <module>kafka-model</module>
-        <module>kafka-admin</module>
     </modules>
     <dependencies>
         <dependency>
@@ -29,10 +27,10 @@
             <groupId>com.eventdrivensystem</groupId>
             <artifactId>common-config</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.kafka</groupId>-->
+<!--            <artifactId>spring-kafka</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
     <properties>

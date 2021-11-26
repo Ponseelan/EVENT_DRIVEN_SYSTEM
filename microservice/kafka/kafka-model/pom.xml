@@ -6,6 +6,7 @@
         <artifactId>microservice</artifactId>
         <groupId>com.eventdrivensystem</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -21,12 +22,15 @@
             <artifactId>avro</artifactId>
         </dependency>
     </dependencies>
-<build>
-    <plugins>
+    <build>
+        <plugins>
             <plugin>
                 <groupId>org.apache.avro</groupId>
                 <artifactId>avro-maven-plugin</artifactId>
                 <version>${avro.version}</version>
+                <configuration>
+                    <stringType>String</stringType>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>
@@ -34,8 +38,8 @@
                             <goal>schema</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
-                            <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+                            <sourceDirectory>src/main/resources/avro</sourceDirectory>
+                            <outputDirectory>src/main/java</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -48,6 +52,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-    </plugins>
-</build>
+        </plugins>
+    </build>
 </project>
