@@ -8,7 +8,7 @@ twitter-to-kafka-service:
   welcome-message: hellow
   mock-tweet-enabled: false
   mock-min-tweet-length: 5
-  mock-max-tweet-length: 25
+  mock-max-tweet-length: 25   
   mock-sleep-ms: 5000
 retry-config:
   initialIntervalMs: 1000
@@ -25,3 +25,13 @@ kafka-config:
     - twitter-topic
   numOfPartitions: 3
   replicationFactor: 3
+kafka-producer-config:
+  kafka-serializer-class: org.apache.kafka.common.serialization.LongSerializer
+  value-serializer-class: io.confluent.kafka.serializers.KafkaAvroSerializer
+  compression-type: snappy
+  acks: all
+  batch-size: 16384
+  batch-size-boost-factor: 100
+  linger-ms: 5
+  request-timeout-ms: 60000
+  retry-count: 5

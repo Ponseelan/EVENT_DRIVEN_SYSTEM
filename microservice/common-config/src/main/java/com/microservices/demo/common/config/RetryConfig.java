@@ -1,6 +1,6 @@
 package com.microservices.demo.common.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.microservice.demo.config.RetryConfigData;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.retry.backoff.ExponentialBackOffPolicy;
