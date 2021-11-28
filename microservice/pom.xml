@@ -53,9 +53,23 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.kafka</groupId>
                 <artifactId>spring-kafka</artifactId>
                 <version>${kafka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.eventdrivensystem</groupId>
+                <artifactId>kafka-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.eventdrivensystem</groupId>
+                <artifactId>kafka-producer</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>

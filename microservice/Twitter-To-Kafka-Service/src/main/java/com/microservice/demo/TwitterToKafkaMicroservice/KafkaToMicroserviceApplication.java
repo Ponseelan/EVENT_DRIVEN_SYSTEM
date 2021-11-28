@@ -1,7 +1,7 @@
 package com.microservice.demo.TwitterToKafkaMicroservice;
 
+import com.microservice.demo.TwitterToKafkaMicroservice.init.IStreamInitializer;
 import com.microservice.demo.TwitterToKafkaMicroservice.runner.StreamRunner;
-import com.microservice.demo.config.TwitterToKafkaConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -15,10 +15,10 @@ import org.springframework.context.annotation.ComponentScan;
 public class KafkaToMicroserviceApplication implements CommandLineRunner {
     private static final Logger logger = LoggerFactory.getLogger(KafkaToMicroserviceApplication.class);
     private final StreamRunner streamRunner;
-    private final TwitterToKafkaConfig twitterToKafkaConfig;
+    private IStreamInitializer streamInitializer;
 
-    public KafkaToMicroserviceApplication(TwitterToKafkaConfig twitterToKafkaConfig, StreamRunner streamRunner) {
-        this.twitterToKafkaConfig = twitterToKafkaConfig;
+    public KafkaToMicroserviceApplication(StreamRunner streamRunner, IStreamInitializer streamInitializer) {
+        this.streamInitializer = streamInitializer;
         this.streamRunner = streamRunner;
     }
 
@@ -29,10 +29,7 @@ public class KafkaToMicroserviceApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         logger.info("INIT Action");
-        twitterToKafkaConfig.getTwitterKeywords().stream().forEach((x) -> {
-            logger.info(x);
-        });
-        logger.info(twitterToKafkaConfig.getWelcomeMessage());
+        streamInitializer.init();
         streamRunner.start();
     }
 }

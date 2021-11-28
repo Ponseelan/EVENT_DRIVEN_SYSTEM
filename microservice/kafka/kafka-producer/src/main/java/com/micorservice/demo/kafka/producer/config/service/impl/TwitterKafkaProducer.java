@@ -21,11 +21,10 @@ public class TwitterKafkaProducer implements IKafkaProducer<Long, TwitterAvroMod
     public TwitterKafkaProducer(KafkaTemplate<Long, TwitterAvroModel> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
+
     @PreDestroy
-    public void close()
-    {
-        if(kafkaTemplate!=null)
-        {
+    public void close() {
+        if (kafkaTemplate != null) {
             LOG.info("Closing Kafka");
             kafkaTemplate.destroy();
         }

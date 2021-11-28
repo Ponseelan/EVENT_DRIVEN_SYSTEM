@@ -1,8 +1,8 @@
-package com.microservices.demo.kafka.admin.client;
+package com.microservice.demo.kafka.admin.client;
 
 import com.microservice.demo.config.KafkaConfigData;
 import com.microservice.demo.config.RetryConfigData;
-import com.microservices.demo.kafka.admin.exception.KafkaAdminClientException;
+import com.microservice.demo.kafka.admin.exception.KafkaAdminClientException;
 import org.apache.kafka.clients.admin.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
