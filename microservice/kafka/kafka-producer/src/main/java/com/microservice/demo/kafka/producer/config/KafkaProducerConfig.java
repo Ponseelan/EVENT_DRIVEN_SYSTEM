@@ -1,4 +1,4 @@
-package com.micorservice.demo.kafka.producer.config;
+package com.microservice.demo.kafka.producer.config;
 
 import com.microservice.demo.config.KafkaConfigData;
 import com.microservice.demo.config.KafkaProducerConfigData;
